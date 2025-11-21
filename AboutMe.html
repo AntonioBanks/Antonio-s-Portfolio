@@ -1,70 +1,128 @@
+// ...existing code...
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>About Me | Antonio Banks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root{
+            --bg-1: #eaf4ff;
+            --bg-2: #e1f0ff;
+            --nav-top: #07316a;
+            --nav-bottom: #0e4a8a;
+            --accent: #2b7be9;
+            --accent-2: #7fb5ff;
+            --text-dark: #07233f;
+            --muted: #4b6b88;
+            --card: rgba(255,255,255,0.96);
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #f4f4f4;
-            color: #222;
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+            color: var(--text-dark);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
-        nav {
-            background: #222;
-            padding: 1em 0;
-            text-align: center;
+        nav{
+            background: linear-gradient(180deg, var(--nav-top), var(--nav-bottom));
+            padding: 12px 0;
+            box-shadow: 0 6px 18px rgba(11,35,66,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1.5em;
-            font-weight: 500;
-            font-size: 1.1em;
-            transition: color 0.2s;
+        .nav-inner{
+            max-width:1100px;
+            margin:0 auto;
+            padding:0 18px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
         }
-        nav a:hover {
-            color: #4db6ac;
+        .brand{ color:#fff; font-weight:600; font-size:1.05rem; }
+        .nav-links{ display:flex; gap:16px; align-items:center; }
+        .nav-links a{
+            color: rgba(255,255,255,0.95);
+            text-decoration:none;
+            padding:8px 12px;
+            border-radius:8px;
+            font-weight:500;
+            transition: all 180ms ease;
         }
-        .container {
-            max-width: 800px;
-            margin: 2em auto;
-            background: #fff;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .nav-links a:hover{ background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+        .cta{
+            background: linear-gradient(90deg,var(--accent),var(--accent-2));
+            color:#fff;
+            padding:8px 14px;
+            border-radius:10px;
+            box-shadow: 0 6px 18px rgba(43,123,233,0.18);
         }
-        h1 {
-            margin-bottom: 0.5em;
-            font-size: 2em;
-            color: #333;
-            text-align: center;
+        .container{ max-width:980px; margin:28px auto; padding:20px; }
+        .card{
+            background: var(--card);
+            border-radius:14px;
+            padding:28px;
+            box-shadow: 0 10px 30px rgba(11,35,66,0.06);
+            display:flex;
+            gap:28px;
+            align-items:center;
+            border-left:6px solid var(--accent);
         }
-        p {
-            font-size: 1.15em;
-            color: #555;
-            text-align: center;
+        .intro{ flex:1 1 60%; }
+        .intro h1{ margin:0 0 8px 0; font-size:1.8rem; color:var(--text-dark); }
+        .intro p{ margin:0; color:var(--muted); font-size:1.05rem; line-height:1.6; }
+        .profile{ width:150px; flex:0 0 150px; text-align:center; }
+        .profile img{
+            width:150px; height:150px; object-fit:cover; border-radius:50%;
+            border:6px solid rgba(43,123,233,0.12);
+            box-shadow:0 10px 30px rgba(43,123,233,0.12);
+            background: linear-gradient(180deg, rgba(43,123,233,0.06), rgba(127,181,255,0.03));
+        }
+        .meta{ margin-top:12px; display:flex; gap:10px; color:var(--muted); font-size:0.95rem; }
+        @media (max-width:820px){
+            .card{ flex-direction:column; text-align:center; border-left:none; border-top:6px solid var(--accent); }
+            .profile{ width:120px; flex:0 0 120px; }
+            .profile img{ width:120px; height:120px; }
+            .intro h1{ font-size:1.5rem; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="AboutMe.html">About Me</a>
-        <a href="ProfessionalPage.html">Professional Page</a>
+        <div class="nav-inner">
+            <div class="brand">Antonio Banks</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a class="cta" href="AboutMe.html">About Me</a>
+                <a href="ProfessionalPage.html">Professional</a>
+            </div>
+        </div>
     </nav>
-    <div class="container">
-        <h1>About Me</h1>
-        <p>
-            Hi, I'm Antonio Banks! I am passionate about technology, creativity, and continuous learning. 
-            On this page, you'll find more about my background, interests, and what drives me.
-            As a Tech Program Intern, I’ve had the opportunity to collaborate across teams, manage timelines,
-            and support the coordination of key initiatives. These experiences have strengthened my skills in 
-            communication, organization, and strategic planning, while also deepening my understanding of how
-            projects move from concept to completion. I value integrity, curiosity, and collaboration, and I 
-            take pride in being someone who approaches challenges with both structure and empathy.
-        </p>
-    </div>
+
+    <main class="container">
+        <section class="card">
+            <div class="intro">
+                <h1>About Me</h1>
+                <p>
+                    Hi, I'm Antonio Banks. I am passionate about technology, creativity, and continuous learning.
+                    As a Tech Program Intern, I’ve had the opportunity to collaborate across teams, manage timelines,
+                    and support the coordination of key initiatives. These experiences have strengthened my skills in
+                    communication, organization, and strategic planning, while also deepening my understanding of how
+                    projects move from concept to completion. I value integrity, curiosity, and collaboration, and I
+                    take pride in approaching challenges with both structure and empathy.
+                </p>
+                <div class="meta">Tech Program Intern • Collaboration • Strategy • Execution</div>
+            </div>
+
+            <div class="profile">
+                <img src="assets/Screenshot-2023-06-08-131137.jpg" alt="Antonio Banks Portrait">
+            </div>
+        </section>
+    </main>
 </body>
 </html>

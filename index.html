@@ -1,72 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Antonio Banks | Portfolio</title>
+
+    <!-- Use a modern sans-serif from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
+        :root{
+            --bg-1: #eaf4ff;
+            --bg-2: #e1f0ff;
+            --nav-top: #07316a;
+            --nav-bottom: #0e4a8a;
+            --accent: #2b7be9;
+            --accent-2: #7fb5ff;
+            --text-dark: #07233f;
+            --muted: #4b6b88;
+            --card: rgba(255,255,255,0.95);
+        }
+
+        /* Reset & base */
+        *{box-sizing:border-box}
+        html,body{height:100%}
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #f4f4f4;
-            color: #222;
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+            color: var(--text-dark);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
-        nav {
-            background: #222;
-            padding: 1em 0;
-            text-align: center;
+
+        /* Top navigation */
+        nav{
+            background: linear-gradient(180deg, var(--nav-top), var(--nav-bottom));
+            padding: 14px 0;
+            box-shadow: 0 6px 18px rgba(11,35,66,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
-        nav a {
+        .nav-inner{
+            max-width:1100px;
+            margin:0 auto;
+            padding:0 18px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+        }
+        .brand{
             color: #fff;
-            text-decoration: none;
-            margin: 0 1.5em;
-            font-weight: 500;
-            font-size: 1.1em;
-            transition: color 0.2s;
+            font-weight:600;
+            letter-spacing:0.2px;
+            font-size:1.05rem;
         }
-        nav a:hover {
-            color: #4db6ac;
+        .nav-links{
+            display:flex;
+            gap:18px;
+            align-items:center;
         }
-        .container {
-            max-width: 800px;
-            margin: 2em auto;
-            background: #fff;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .nav-links a{
+            color: rgba(255,255,255,0.95);
+            text-decoration:none;
+            padding:8px 12px;
+            border-radius:8px;
+            font-weight:500;
+            transition: all 180ms ease;
         }
+        .nav-links a:hover{
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(11,35,66,0.08);
+        }
+        .cta{
+            background: linear-gradient(90deg,var(--accent),var(--accent-2));
+            color:#fff;
+            padding:8px 14px;
+            border-radius:10px;
+            box-shadow: 0 6px 18px rgba(43,123,233,0.18);
+        }
+
+        /* Main container */
+        .container{
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 28px;
+        }
+
+        .card{
+            background: var(--card);
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(11,35,66,0.06);
+            display:flex;
+            gap:28px;
+            align-items:center;
+            border-left: 6px solid var(--accent);
+        }
+
         .intro {
-            text-align: center;
+            flex: 1 1 60%;
         }
-        .intro img {
-            max-width: 200px;
-            border-radius: 50%;
-            margin-top: 1em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        .intro h1{
+            margin:0 0 8px 0;
+            font-size:1.9rem;
+            color: var(--text-dark);
+            line-height:1.05;
         }
-        h1 {
-            margin-bottom: 0.5em;
-            font-size: 2em;
-            color: #333;
+        .intro p{
+            margin:0;
+            color: var(--muted);
+            font-size:1.05rem;
         }
-        p {
-            font-size: 1.15em;
-            color: #555;
+
+        .profile {
+            width: 160px;
+            flex: 0 0 160px;
+            text-align:center;
+        }
+        .profile img{
+            width:160px;
+            height:160px;
+            object-fit:cover;
+            border-radius:50%;
+            border:6px solid rgba(43,123,233,0.12);
+            box-shadow: 0 10px 30px rgba(43,123,233,0.12);
+            background: linear-gradient(180deg, rgba(43,123,233,0.06), rgba(127,181,255,0.03));
+        }
+
+        /* Small utilities */
+        .meta{
+            margin-top:12px;
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            color:var(--muted);
+            font-size:0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width:820px){
+            .card{flex-direction:column; text-align:center; border-left: none; border-top:6px solid var(--accent);}
+            .profile{width:120px;flex:0 0 120px}
+            .profile img{width:120px;height:120px}
+            .intro h1{font-size:1.6rem}
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="professional.html">Professional Page</a>
+        <div class="nav-inner">
+            <div class="brand">Antonio Banks</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="AboutMe.html">About Me</a>
+                <a class="cta" href="ProfessionalPage.html">Professional</a>
+            </div>
+        </div>
     </nav>
-    <div class="container">
-        <section class="intro">
-            <h1>Welcome to Antonio Banks' Portfolio</h1>
-            <p>Hello! I'm Antonio Banks. Explore my work, learn more about me, and see my professional experience.</p>
-            <img src="assets/Screenshot-2023-06-08-131137.jpg" alt="Antonio Banks Portrait">
+
+    <main class="container">
+        <section class="card">
+            <div class="intro">
+                <h1>Welcome — Antonio Banks' Portfolio</h1>
+                <p>Hi — I'm Antonio. Explore my projects, learn about my background, and view my professional experience.</p>
+                <div class="meta">
+                    <span>Tech Program Intern</span>
+                    <span>•</span>
+                    <span>Collaboration • Strategy • Execution</span>
+                </div>
+            </div>
+
+            <div class="profile">
+                <img src="assets/Screenshot-2023-06-08-131137.jpg" alt="Antonio Banks Portrait">
+            </div>
         </section>
-    </div>
+    </main>
 </body>
 </html>
